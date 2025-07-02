@@ -2,10 +2,11 @@ const { Server } = require("socket.io");
 
 function setupSocketIO(httpServer) {
   const io = new Server(httpServer, {
-    cors: {
-      origin: "*",
-      methods: ["GET", "POST"],
-    },
+   cors: {
+    origin: "https://meetapp-frontend-z33b.onrender.com",
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
   });
 
   const rooms = {};
