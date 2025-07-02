@@ -12,7 +12,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 
-app.use(cors());
+app.use(cors({
+  origin: "https://meetapp-frontend-z33b.onrender.com",
+  credentials: true,
+}));
 app.use(express.json());
 app.use('/api/meet', meetRoutes);
 
