@@ -441,34 +441,34 @@ const handleLeaveCall = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-<div
-  className="grid gap-4 justify-center items-center"
-  style={{
-    height: 'calc(100vh - 80px)',
-    gridTemplateColumns: getGridColumns(),
-    gridTemplateRows: getGridRows(),
-  }}
->
-  {/* Self Video */}
-  {(isMobile || currentPage === 0) && (
-  <div className="relative w-full aspect-video h-full rounded overflow-hidden bg-black shadow-lg">
-    <video
-      muted
-      ref={userVideo}
-      autoPlay
-      playsInline
-      className="w-full h-full object-cover"
-    />
-    <div className="absolute bottom-2 left-2 bg-black/60 text-white text-sm px-3 py-1">
-      {displayName || "You"}
+    <div
+      className="grid gap-4 justify-center items-center"
+      style={{
+        height: 'calc(100vh - 80px)',
+        gridTemplateColumns: getGridColumns(),
+        gridTemplateRows: getGridRows(),
+      }}
+    >
+      {/* Self Video */}
+      {(isMobile || currentPage === 0) && (
+      <div className="relative w-full aspect-video h-full rounded overflow-hidden bg-black shadow-lg">
+        <video
+          muted
+          ref={userVideo}
+          autoPlay
+          playsInline
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute bottom-2 left-2 bg-black/60 text-white text-sm px-3 py-1">
+          {displayName || "You"}
+        </div>
+      </div>
+    )}
+      {/* Peers */}
+      {currentPeers.map((peerObj, index) => (
+        <Video key={index} peer={peerObj.peer} name={peerObj.displayName} />
+      ))}
     </div>
-  </div>
-)}
-  {/* Peers */}
-  {currentPeers.map((peerObj, index) => (
-    <Video key={index} peer={peerObj.peer} name={peerObj.displayName} />
-  ))}
-</div>
   
       {/* Pagination */}
       {peerPages.length > 1 && (
